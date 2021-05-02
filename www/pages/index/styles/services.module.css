@@ -1,0 +1,21 @@
+.service {
+  opacity: 0.5;
+}
+
+.service.current {
+  opacity: 1;
+}
+
+.service > :global(*) {
+  cursor: initial;
+}
+
+.service :global(span) {
+  @apply border-b;
+  @apply border-transparent;
+}
+
+.service.current :global(span) {
+  @apply border-b;
+  @apply border-blue-500;
+}

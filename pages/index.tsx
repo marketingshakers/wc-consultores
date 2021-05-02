@@ -16,10 +16,10 @@ query HomeQuery {
       ${responsiveImageHelper({ w: 480, h: 800, q: 60 })}
     }
     
-    servicesBg {
-      ${responsiveImageHelper({ w: 800, q: 60 })}
-    }
     services {
+      image {
+        ${responsiveImageHelper({ w: 800, q: 60 })}
+      }
       text
     }
   }

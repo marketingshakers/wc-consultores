@@ -30,12 +30,12 @@ const Welcome = ({
         perspective: 1000,
         ...setAnim({ y: '1.5rem', rx: '-16deg' })
       }}>
-        <h2 className="text-4xl sm:text-5xl lg:w-[13ch] mb-12 animate">{welcomeTitle}</h2>
-        <p className="font-bold text-xl mb-12 animate" style={setAnim({ d: '100ms' })}>
+        <h2 className="text-4xl sm:text-5xl lg:w-[13ch] mb-16 animate">{welcomeTitle}</h2>
+        <p className="font-bold text-xl mb-8 animate" style={setAnim({ d: '100ms' })}>
           {welcomeFrase}
         </p>
         <div
-          className="space-y-4 sm:text-xl animate"
+          className="space-y-4 animate font-light"
           style={setAnim({ d: '200ms' })}
           dangerouslySetInnerHTML={{ __html: welcomeText }}
         />

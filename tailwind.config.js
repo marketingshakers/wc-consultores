@@ -10,7 +10,7 @@ const sizing = () => {
 
 const fontFamily = {
   sans: [
-    'IBM Plex Sans',
+    'Inter',
     ...defaultTheme.fontFamily.sans,
   ],
   mono: [

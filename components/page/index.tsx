@@ -32,7 +32,7 @@ const Page = ({
   <globalDataContext.Provider value={globalData}>
     <GoogleFonts
       families={[
-        'IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600',
+        'Inter:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600',
       ]}
       display="swap"
     />

@@ -23,10 +23,10 @@ const Hero = ({ heroBg }: HeroProps) => (
         perspective: 1000,
         ...setAnim({ y: '1.5rem', rx: '-6deg' })
       }}>
-        <h1 className="text-3xl sm:text-5xl sm:w-[20ch] mb-4 animate" style={setAnim({d: '300ms'})}>
+        <h1 className="text-3xl sm:text-5xl sm:w-[20ch] mb-4 animate lg:text-6xl" style={setAnim({d: '300ms'})}>
           20 años desarrollando estrategias de inversión
         </h1>
-        <p className="text-xl mb-14 animate" style={setAnim({ d: '400ms' })}>
+        <p className="text-xl mb-14 animate lg:text-2xl font-light" style={setAnim({ d: '400ms' })}>
           Para centros comerciales,<br />retail y franquicias.
         </p>
         <div className="animate" style={setAnim({ d: '500ms' })}>

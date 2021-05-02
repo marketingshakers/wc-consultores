@@ -8,6 +8,7 @@ import nav from '@/lib/navigation'
 import { useGlobalDataContext } from '@/components/page'
 import Image from 'next/image'
 import { ArrowUp24 } from '@carbon/icons-react'
+import Whatsapp from '@/public/images/whatsapp.svg'
 
 export interface NavbarProps {
   transparent?: boolean
@@ -55,9 +56,9 @@ export default function Navbar({ transparent }: NavbarProps) {
 
   return (
     <>
-      <div className={`duration-500 transform-gpu right-0 bottom-0 z-10 fixed pb-6 pr-6 ${(scrollY <= 96 || !sidebar && isShowing ) && 'translate-y-full pointer-events-none'}`}>
+      <div className={`duration-500 transform-gpu right-0 bottom-0 z-10 fixed pb-6 pr-6 flex flex-col space-y-4 ${(scrollY <= 96 || !sidebar && isShowing ) && 'translate-y-full pointer-events-none'}`}>
         <button
-          className={`bg-blue-500 toTop rounded-[50%] p-4 shadow-xl`}
+          className={`bg-blue-500 toTop rounded-[50%] p-4 shadow-xl hover:bg-blue-400 duration-200`}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           title="Ir hacia arriba"
          >
@@ -65,6 +66,17 @@ export default function Navbar({ transparent }: NavbarProps) {
             className="flex text-white duration-200 items-center arrow"
           >
             <ArrowUp24 width={24} height={24} />
+          </div>
+        </button>
+        <button
+          className={`bg-green-500 rounded-[50%] p-4 shadow-xl hover:bg-green-400 duration-200`}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          title="Contactarse por WhatsApp"
+         >
+          <div
+            className="flex text-white duration-200 items-center"
+          >
+            <Whatsapp width={24} height={24} />
           </div>
         </button>
       </div>
@@ -106,7 +118,7 @@ export default function Navbar({ transparent }: NavbarProps) {
             </div>
             <Link href="/menu">
               <a
-                className={`bg-transparent rounded-full font-bold border-2 text-sm mb-[2px] py-2 px-4 duration-200 lg:text-base ${scrollY == 0 && transparent ? 'border-gray-50 text-gray-50 hover:bg-gray-50 hover:text-x-gray-900' : 'border-x-gray-800 text-x-gray-800 hover:bg-x-gray-800 hover:text-white'}`}
+                className={`bg-transparent rounded-full font-bold border-2 text-sm mb-[2px] py-2 px-4 duration-200 lg:text-base ${scrollY == 0 && transparent ? 'border-gray-50 text-gray-50 hover:bg-gray-50 hover:text-x-gray-900' : 'border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white'}`}
               >Contáctanos</a>
             </Link>
             <div className="ml-6 lg:hidden">
