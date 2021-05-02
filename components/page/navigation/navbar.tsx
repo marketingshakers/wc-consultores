@@ -7,6 +7,7 @@ import s from './styles/navbar.module.css'
 import nav from '@/lib/navigation'
 import { useGlobalDataContext } from '@/components/page'
 import Image from 'next/image'
+import { ArrowUp24 } from '@carbon/icons-react'
 
 export interface NavbarProps {
   transparent?: boolean
@@ -54,6 +55,24 @@ export default function Navbar({ transparent }: NavbarProps) {
 
   return (
     <>
+      <div className={`duration-500 transform-gpu right-0 bottom-0 z-10 fixed pb-6 pr-6 ${(scrollY <= 96 || !sidebar && isShowing ) && 'translate-y-full pointer-events-none'}`}>
+        <button
+          className={`bg-blue-500 toTop rounded-[50%] p-4 shadow-xl`}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          title="Ir hacia arriba"
+         >
+          <div
+            className="flex text-white duration-200 items-center arrow"
+          >
+            <ArrowUp24 width={24} height={24} />
+          </div>
+        </button>
+      </div>
+      <style jsx>{`
+      .toTop:hover > .arrow {
+        transform: translateY(-0.2rem)
+      }
+      `}</style>
       <header className={`${s.header} duration-500 transform-gpu ${(scrollY == 0 && transparent) && 'transparent'} ${(!sidebar && !isShowing) && '-translate-y-full pointer-events-none'}`}>
         <Sidebar open={sidebar} toggle={toggleSidebar} />
         <div className={`${s.headerWrapper} border-b duration-200 ${scrollY == 0 && transparent ? 'border-gray-50' : 'border-x-gray-200'}`}>
