@@ -1,4 +1,5 @@
 import Page, { PageProps } from '@/components/page'
+import { getGlobalData } from '@/lib/datocms'
 
 const Page404 = (props: PageProps) => (
   <Page {...props} title="You're offline">
@@ -11,9 +12,11 @@ const Page404 = (props: PageProps) => (
   </Page>
 )
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
+  const globalData = await getGlobalData()
   return {
     props: {
+      globalData
     }
   }
 }

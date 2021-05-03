@@ -32,13 +32,13 @@ const Tools = ({
       }}>
         <h2 className="text-3xl sm:text-4xl lg:w-[21ch] mb-16 animate">{toolsTitle}</h2>
         <div
-          className="font-bold text-xl sm:text-2xl mb-12 lg:w-[34ch] animate xxl:w-full"
+          className="font-bold text-xl sm:text-2xl mb-12 animate"
           style={setAnim({ d: '100ms' })}
           dangerouslySetInnerHTML={{ __html: toolsText }}
         />
 
         <p
-          className="font-light text-x-gray-500 text-xl sm:text-2xl animate mb-12"
+          className="font-light text-x-gray-400 text-xl sm:text-2xl animate mb-12"
           style={setAnim({ d: '200ms' })}
         >Empresas que han confiado en nosotros</p>
         <div className="flex flex-wrap w-full gap-12">

@@ -18,7 +18,7 @@ const Services = ({ services }: ServicesProps) => {
       {services.map((i, idx) => (
         <div
           id={`${idx}`}
-          className={`absolute w-full h-full transform-gpu duration-500 ${serviceIdx == idx ? 'opacity-25' : 'opacity-0 scale-105 translate-y-2'}`} aria-hidden key={idx}
+          className={`absolute w-full h-full transform-gpu duration-500 ${serviceIdx == idx ? 'opacity-[0.2]' : 'opacity-0 scale-105 translate-y-2'}`} aria-hidden key={idx}
         >
           <Image
             data={i.image.responsiveImage}

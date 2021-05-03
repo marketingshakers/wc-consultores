@@ -1,7 +1,7 @@
 import { getGlobalData, request, responsiveImageHelper } from '@/lib/datocms'
 import { IndexProps } from '@/www/pages/index'
 export { default,  } from '@/www/pages/index'
-import { GetStaticPropsResult } from 'next'
+import { GetStaticProps } from 'next'
 
 const query = `
 query HomeQuery {
@@ -35,11 +35,13 @@ query HomeQuery {
 }
 `
 
-export const getStaticProps = async (): Promise<GetStaticPropsResult<IndexProps>> => {
+export const getStaticProps: GetStaticProps<IndexProps> = async () => {
   const { home } = await request({ query })
+  const globalData = await getGlobalData()
   return {
     props: {
-      ...home
+      ...home,
+      globalData
     }
   }
 }

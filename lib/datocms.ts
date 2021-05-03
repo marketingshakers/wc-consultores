@@ -67,22 +67,8 @@ fragment responsiveImageFragment on ResponsiveImage {
 
 const GLOBAL_DATA_QUERY = `
 query GlobalDataQuery {
-  globalInfo {
-    footerDescription
-    direction
-  }
-  contactInfo {
-    facebook
-    instagram
+  contact {
     phone
-  }
-  menuCategories: allMenuCategories {
-    name
-    slug
-    public
-    image {
-      ${responsiveImageHelper({ w: 500, h: 500, fit: 'crop' })}
-    }
   }
 }
 `

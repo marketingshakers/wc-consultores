@@ -16,7 +16,7 @@ export interface NavbarProps {
 
 export default function Navbar({ transparent }: NavbarProps) {
   const [sidebar, setSidebar] = useState(false)
-  const [scrollY, setScrollY] = useState<number>(null)
+  const [scrollY, setScrollY] = useState(0)
   const toggleSidebar = () => (setSidebar(!sidebar))
   const globalData = useGlobalDataContext()
 
@@ -54,31 +54,38 @@ export default function Navbar({ transparent }: NavbarProps) {
     return () => (window.removeEventListener('scroll', scrollHander))
   })
 
+  const { contact } = useGlobalDataContext()
+
+  const phone = contact.phone.replace(/\D/g, '') 
+
   return (
     <>
       <div className={`duration-500 transform-gpu right-0 bottom-0 z-10 fixed pb-6 pr-6 flex flex-col space-y-4 ${(scrollY <= 96 || !sidebar && isShowing ) && 'translate-y-full pointer-events-none'}`}>
-        <button
-          className={`bg-blue-500 toTop rounded-[50%] p-4 shadow-xl hover:bg-blue-400 duration-200`}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          title="Ir hacia arriba"
-         >
-          <div
-            className="flex text-white duration-200 items-center arrow"
+        <Link href="#">
+          <a
+            className={`bg-blue-500 toTop rounded-[50%] p-4 shadow-xl hover:bg-blue-400 duration-200 outline-none focus:outline-none`}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            title="Ir hacia arriba"
           >
-            <ArrowUp24 width={24} height={24} />
-          </div>
-        </button>
-        <button
-          className={`bg-green-500 rounded-[50%] p-4 shadow-xl hover:bg-green-400 duration-200`}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            <div
+              className="flex text-white duration-200 items-center arrow"
+            >
+              <ArrowUp24 width={24} height={24} />
+            </div>
+          </a>
+        </Link>
+        <a
+          className={`bg-green-500 rounded-[50%] p-4 shadow-xl hover:bg-green-400 duration-200 outline-none focus:outline-none`}
           title="Contactarse por WhatsApp"
-         >
+          href={`https://wa.me/${phone}`}
+          target="_blank"
+        >
           <div
             className="flex text-white duration-200 items-center"
           >
             <Whatsapp width={24} height={24} />
           </div>
-        </button>
+        </a>
       </div>
       <style jsx>{`
       .toTop:hover > .arrow {
