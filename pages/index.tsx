@@ -22,6 +22,15 @@ query HomeQuery {
       }
       text
     }
+
+    toolsImage {
+      ${responsiveImageHelper({ w: 480, h: 800, q: 60 })}
+    }
+    toolsTitle
+    toolsText
+    toolsLogos {
+      ${responsiveImageHelper({ h: 48 })}
+    }
   }
 }
 `
