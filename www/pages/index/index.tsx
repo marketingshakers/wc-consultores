@@ -1,5 +1,7 @@
 import Page, { PageProps } from '@/components/page'
+import Banner from './banner'
 import Hero, { HeroProps } from './hero'
+import Location, { LocationProps } from './location'
 import Projects, { ProjectsProps } from './projects'
 import Services, { ServicesProps } from './services'
 import Tools, { ToolsProps } from './tools'
@@ -11,6 +13,7 @@ export type IndexProps = PageProps
   & ServicesProps
   & ToolsProps
   & ProjectsProps
+  & LocationProps
 
 const Index = (data: IndexProps) => (
   <Page {...data} padded={false}>
@@ -19,6 +22,8 @@ const Index = (data: IndexProps) => (
     <Services {...data} />
     <Tools {...data} />
     <Projects {...data} />
+    <Location {...data} />
+    <Banner />
   </Page>
 )
 

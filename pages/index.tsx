@@ -41,15 +41,22 @@ query HomeQuery {
       ${responsiveImageHelper({ q: 80 })}
     }
   }
+
+  contact {
+    instagram
+    email
+    location
+  }
 }
 `
 
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
-  const { home } = await request({ query })
+  const { home, contact } = await request({ query })
   const globalData = await getGlobalData()
   return {
     props: {
       ...home,
+      ...contact,
       globalData
     }
   }
