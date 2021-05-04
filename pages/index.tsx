@@ -13,7 +13,7 @@ query HomeQuery {
     welcomeFrase
     welcomeText
     welcomeImage {
-      ${responsiveImageHelper({ w: 480, h: 800, q: 60 })}
+      ${responsiveImageHelper({ w: 480, h: 600, q: 60, fit: 'crop' })}
     }
     
     services {
@@ -24,12 +24,21 @@ query HomeQuery {
     }
 
     toolsImage {
-      ${responsiveImageHelper({ w: 480, h: 800, q: 60 })}
+      ${responsiveImageHelper({ w: 480, h: 600, q: 60, fit: 'crop' })}
     }
     toolsTitle
     toolsText
     toolsLogos {
       ${responsiveImageHelper({ h: 48 })}
+    }
+
+    projectTitle
+    projectDescription
+    projectImage {
+      ${responsiveImageHelper({ w: 600, q: 70 })}
+    }
+    projectImageHd: projectImage {
+      ${responsiveImageHelper({ q: 80 })}
     }
   }
 }
