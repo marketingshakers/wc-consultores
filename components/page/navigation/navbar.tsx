@@ -123,7 +123,7 @@ export default function Navbar({ transparent }: NavbarProps) {
                 </Link>
               ))}
             </div>
-            <Link href="/menu">
+            <Link href="/contacto">
               <a
                 className={`bg-transparent rounded-full font-bold border-2 text-sm mb-[2px] py-2 px-4 duration-200 lg:text-base ${scrollY == 0 && transparent ? 'border-gray-50 text-gray-50 hover:bg-gray-50 hover:text-x-gray-900' : 'border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white'}`}
               >Contáctanos</a>

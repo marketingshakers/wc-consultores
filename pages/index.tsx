@@ -59,7 +59,6 @@ export const getStaticProps: GetStaticProps<IndexProps> = async () => {
   const data = await request({ query })
   const globalData = await getGlobalData()
   const { home, directors, contact } = data
-  console.log(data)
   return {
     props: {
       ...home,
