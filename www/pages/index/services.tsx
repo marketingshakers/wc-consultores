@@ -1,5 +1,5 @@
 import Viewport, { setAnim } from '@/components/viewport'
-import { ResponsiveImage } from '@/lib/models/cms'
+import { IResponsiveImage } from '@/lib/models/cms'
 import { useState } from 'react'
 import { Image } from 'react-datocms'
 import styles from './styles/services.module.css'
@@ -7,7 +7,7 @@ import styles from './styles/services.module.css'
 export interface ServicesProps {
   services?: {
     text?: string
-    image?: ResponsiveImage
+    image?: IResponsiveImage
   }[]
 }
 

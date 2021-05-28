@@ -1,12 +1,12 @@
-import { ResponsiveImage } from '@/lib/models/cms'
+import { IResponsiveImage } from '@/lib/models/cms'
 import { Image } from 'react-datocms'
 import Viewport, { setAnim } from '@/components/viewport'
 
 export interface ToolsProps {
-  toolsImage?: ResponsiveImage
+  toolsImage?: IResponsiveImage
   toolsTitle?: string
   toolsText?: string
-  toolsLogos?: ResponsiveImage[]
+  toolsLogos?: IResponsiveImage[]
 }
 
 const Tools = ({

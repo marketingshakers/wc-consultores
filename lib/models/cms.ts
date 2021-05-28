@@ -1,15 +1,15 @@
 import { ResponsiveImageType } from 'react-datocms'
 
-export interface CMSType {
+export interface ICMSType {
   createdAt?: string
   updatedAt?: string
 }
 
-export interface ResponsiveImage {
+export interface IResponsiveImage {
   responsiveImage?: ResponsiveImageType
 }
 
-export interface Color {
+export interface IColor {
   hex?: string
   red?: number
   blue?: number

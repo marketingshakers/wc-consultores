@@ -1,4 +1,4 @@
-import { ResponsiveImage } from '@/lib/models/cms'
+import { IResponsiveImage } from '@/lib/models/cms'
 import { Image } from 'react-datocms'
 import Viewport, { setAnim } from '@/components/viewport'
 
@@ -6,7 +6,7 @@ export interface WelcomeProps {
   welcomeTitle?: string
   welcomeFrase?: string
   welcomeText?: string
-  welcomeImage?: ResponsiveImage
+  welcomeImage?: IResponsiveImage
 }
 
 const Welcome = ({

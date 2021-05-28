@@ -1,4 +1,4 @@
-import { ResponsiveImage } from '@/lib/models/cms'
+import { IResponsiveImage } from '@/lib/models/cms'
 import Link from 'next/link'
 import { Image } from 'react-datocms'
 import Viewport, { setAnim } from '@/components/viewport'
@@ -6,7 +6,7 @@ import Viewport, { setAnim } from '@/components/viewport'
 export interface HeroProps {
   heroTitle?: string
   heroSubtitle?: string
-  heroBg?: ResponsiveImage
+  heroBg?: IResponsiveImage
 }
 
 const Hero = ({ heroBg }: HeroProps) => (

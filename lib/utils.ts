@@ -3,6 +3,9 @@ export const getAbsoluteURL = (path: string) => {
   return baseURL + path
 }
 
+export const clamp = (number: number, min: number, max: number) =>
+  Math.min(Math.max(number, min), max)
+
 const matcher = (regexp: RegExp, fields?: string[]): (obj: Object) => boolean => {
   return (obj) => {
     const fields1 = fields || Object.keys(obj)

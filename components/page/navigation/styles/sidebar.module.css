@@ -47,7 +47,7 @@
 }
 
 .sidebarLink {
-	@apply font-bold;
+	@apply font-light;
 }
 
 @screen sm {
@@ -115,7 +115,7 @@
 }
 
 .childTitle {
-	@apply font-bold;
+	@apply font-light;
 	@apply text-4xl;
 	@apply py-1;
 	@apply my-2;

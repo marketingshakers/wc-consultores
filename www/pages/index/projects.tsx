@@ -1,12 +1,12 @@
 import Viewport, { setAnim } from '@/components/viewport'
-import { ResponsiveImage } from '@/lib/models/cms'
+import { IResponsiveImage } from '@/lib/models/cms'
 import ZoomImage from '@/components/zoom-image'
 
 export interface ProjectsProps {
   projectTitle?: string
   projectDescription?: string
-  projectImage?: ResponsiveImage
-  projectImageHd?: ResponsiveImage
+  projectImage?: IResponsiveImage
+  projectImageHd?: IResponsiveImage
 }
 
 const Projects = ({

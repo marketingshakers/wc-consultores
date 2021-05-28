@@ -1,7 +1,8 @@
 import { getGlobalData, request, responsiveImageHelper } from '@/lib/datocms'
+import { QFDirector } from '@/lib/models/director'
 import { IndexProps } from '@/www/pages/index'
-export { default,  } from '@/www/pages/index'
 import { GetStaticProps } from 'next'
+export { default } from '@/www/pages/index'
 
 const query = `
 query HomeQuery {
@@ -42,6 +43,10 @@ query HomeQuery {
     }
   }
 
+  directors: allDirectors {
+    ${QFDirector}
+  }
+
   contact {
     instagram
     email
@@ -51,12 +56,15 @@ query HomeQuery {
 `
 
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
-  const { home, contact } = await request({ query })
+  const data = await request({ query })
   const globalData = await getGlobalData()
+  const { home, directors, contact } = data
+  console.log(data)
   return {
     props: {
       ...home,
       ...contact,
+      directors,
       globalData
     }
   }

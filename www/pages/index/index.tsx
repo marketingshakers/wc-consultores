@@ -5,6 +5,7 @@ import Location, { LocationProps } from './location'
 import Projects, { ProjectsProps } from './projects'
 import Services, { ServicesProps } from './services'
 import Tools, { ToolsProps } from './tools'
+import { DirectorsContainer, DirectorsContainerProps } from './directors'
 import Welcome, { WelcomeProps } from './welcome'
 
 export type IndexProps = PageProps
@@ -13,6 +14,7 @@ export type IndexProps = PageProps
   & ServicesProps
   & ToolsProps
   & ProjectsProps
+  & DirectorsContainerProps
   & LocationProps
 
 const Index = (data: IndexProps) => (
@@ -22,6 +24,7 @@ const Index = (data: IndexProps) => (
     <Services {...data} />
     <Tools {...data} />
     <Projects {...data} />
+    <DirectorsContainer {...data} />
     <Location {...data} />
     <Banner />
   </Page>
