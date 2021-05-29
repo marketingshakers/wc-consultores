@@ -22,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   sg.setApiKey(process.env.SENDGRID_API_TOKEN)
   await sg
     .send({
-      to: 'juanvillacortac@gmail.com', // Change to your recipient
+      to: 'wc.consultoresdigitales@gmail.com', // Change to your recipient
       from: 'wc.consultores.cms@gmail.com', // Change to your verified sender
       templateId: 'd-0619067d03c3437b9a0f34337135d0f0',
       dynamicTemplateData: {
