@@ -1,6 +1,7 @@
 import Page, { PageProps } from '@/components/page'
-import { FieldTypeKey, IFormField } from '@/lib/models/form-field'
-import { useState, Dispatch, SetStateAction } from 'react'
+import { IFormField } from '@/lib/models/form-field'
+import { useState } from 'react'
+import Viewport, { setAnim } from '@/components/viewport'
 
 export type ContactProps = PageProps & {
   formFields?: IFormField[]
@@ -43,26 +44,73 @@ const renderField = (idx: number, field: IFormField, fields: IFormField[], handl
 
 const Index = (data: ContactProps) => {
   const [fields, setFieldValues] = useState({ forms: data.formFields })
-  const send = () => {
-    console.log(fields.forms)
+  const [loading, setLoading] = useState(false)
+  const [sended, setSended] = useState(false)
+  const send = async () => {
+    if (loading) {
+      return
+    }
+    const valid = fields.forms.filter((f) => f.required).every((f) => !!f.value?.trim())
+    if (!valid) {
+      alert('Debe llenar todos los campos obligatorios')
+      return
+    }
+    setLoading(true)
+    await fetch('/api/form', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(fields.forms),
+    })
+    .then(() => {
+      setLoading(false)
+      setSended(true)
+      alert('Se ha enviado correctamente el formulario')
+    })
+    .catch((err) => {
+      setLoading(false)
+      console.log(err)
+      alert('Ha ocurrido un error, intente nuevamente')
+    })
+    .finally(() => {
+    })
   }
   return (
     <Page {...data} title="Formulario de contacto">
-      <div className="py-24 pb-48 c-lg lg:pb-24">
-        <h1 className="mb-24 t-h1">Formulario de contacto</h1>
-        <div className="flex flex-col mx-auto space-y-12 w-full lg:w-5/10">
+      <Viewport
+        className="py-24 pb-48 c-lg lg:pb-24"
+        once
+        style={{
+          perspective: 1000,
+          ...setAnim({ y: '1.5rem', rx: '-6deg' })
+        }}
+      >
+        <h1 className="mb-24 animate t-h1">Formulario de contacto</h1>
+        <div className={`flex flex-col mx-auto space-y-12 w-full lg:w-5/10 ${loading && 'animate-pulse'}`}>
+          <p className="font-light text-sm animate">Los campos marcados con asteriscos (*) son obligatorios.</p>
           {fields.forms.map((f, idx) => (
-            <div key={idx} className="flex flex-col">
-              <label htmlFor={slugify(f.title)} className="font-bold mb-4 input-label">{`${f.title}${f.required ? ' *' : ''}`}</label>
+            <div key={idx} className="flex flex-col animate" style={setAnim({d: `${idx * 100 + 100}ms`})}>
+              <label
+                htmlFor={slugify(f.title)}
+                className="font-bold mb-4 input-label"
+              >
+                {`${f.title}${f.required ? ' *' : ''}`}
+              </label>
               {renderField(idx, f, fields.forms, setFieldValues)}
+              {f.note && (
+                <div className="font-light mt-4 text-xs" dangerouslySetInnerHTML={{ __html: f.note }} />
+              )}
             </div>
           ))}
           <button
-            className="bg-transparent font-bold ml-auto border-2 border-blue-500 text-sm mb-[2px] py-2 px-4 text-blue-500 duration-200 lg:text-base hover:text-white hover:bg-blue-500"
+            className="bg-transparent font-bold ml-auto border-2 border-blue-500 text-sm mb-[2px] py-2 px-4 text-blue-500 duration-200 lg:text-base hover:text-white disabled:pointer-events-none disabled:cursor-not-allowed hover:bg-blue-500"
             onClick={send}
-          >Enviar</button>
+            disabled={loading || sended}
+          >{sended ? 'Enviado' : 'Enviar'}</button>
         </div>
-      </div>
+      </Viewport>
     </Page>
   )
 }

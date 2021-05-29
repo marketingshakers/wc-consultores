@@ -20,14 +20,6 @@ const buildSitemap: BuildSitemap = (items) => {
     })
   })
 
-  // items.allAlbums.forEach((item: Album) => {
-  //   sitemap.write({
-  //     url: `${hostUrl}/galeria/${item.slug}`,
-  //     lastmodISO: new Date(item.updatedAt).toISOString(),
-  //     priority: 0.8,
-  //   });
-  // });
-
   sitemap.end();
 
   return streamToPromise(sitemap)
