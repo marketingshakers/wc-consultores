@@ -4,6 +4,7 @@ export const QFFormField = `
   title
   required
   note
+  placeholder
   fieldType {
     title
     type: fieldType
@@ -22,5 +23,6 @@ export interface IFormField extends ICMSType {
   required?: boolean
   note?: string
   fieldType?: IFieldType
+  placeholder?: string
   value?: string
 }

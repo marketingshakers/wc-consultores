@@ -20,7 +20,7 @@ const DirectorsContainer = ({ directors }: DirectorsContainerProps) => (
     </Viewport>
     <div
       className={`${styles.grid}`} style={{
-        ['--directors-container-length' as string]: clamp(directors.length, 2, 3)
+        ['--director-container-length' as string]: clamp(directors.length, 2, 4)
       }}
     >
       {directors.map((d, idx) => (
