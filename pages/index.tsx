@@ -65,6 +65,7 @@ export const getStaticProps: GetStaticProps<IndexProps> = async () => {
       ...contact,
       directors,
       globalData
-    }
+    },
+    revalidate: 60
   }
 }

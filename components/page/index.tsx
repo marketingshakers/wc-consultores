@@ -21,7 +21,7 @@ const brand = 'WC Consultores'
 const Page = ({
   padded = true,
   navbar = true,
-  footer = false,
+  footer = true,
   title,
   brandTitle,
   description,

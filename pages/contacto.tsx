@@ -22,6 +22,7 @@ export const getStaticProps: GetStaticProps<ContactProps> = async () => {
     props: {
       ...form,
       globalData
-    }
+    },
+    revalidate: 60
   }
 }

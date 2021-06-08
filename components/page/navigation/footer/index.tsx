@@ -18,43 +18,21 @@ const Marketing = () => {
   return (
     <div className={styles['el']}>
       <Image
-        src="/images/logo-black.png"
-        alt="Home"
-        title="Home"
-        width={128}
-        height={128}
+        src="/images/logo.png"
+        alt="WC Consultores"
+        width={490/2}
+        height={213/2}
+        objectFit="contain"
         layout="fixed"
       />
-      <div className="mt-6">
-        <div
-          className={styles['paragraph']}
-         />
-      </div>
-      <div className="flex mt-6 items-center">
-        <p className={styles['title']}>Follow us</p>
-        <div className="flex -mx-2 pl-4 text-x-gray-300 items-center">
-          <a
-            className="px-2 duration-200 hover:text-black"
-          >
-            <LogoFacebook32 />
-          </a>
-          <a
-            className="px-2 duration-200 hover:text-black"
-          >
-            <LogoInstagram32 />
-          </a>
-        </div>
-      </div>
     </div>
   )
 }
 
-const Section = ({ titulo, childrens }: {
-  titulo: string,
+const Section = ({ childrens }: {
   childrens?: { titulo: string, href: string }[]
 }) => (
   <div className={styles['el']}>
-    <p className={styles['title']}>{titulo}</p>
     <div className={styles['links']}>
       {childrens.map((n, i) => (
         <Link href={n.href} key={i}>
@@ -71,36 +49,30 @@ const Isolated = () => {
   return (
     <>
       {isolated.length > 0 ? (
-        <Section titulo="Menu" childrens={isolated as any[]} />
+        <Section childrens={isolated as any[]} />
       ) : null}
     </>
   )
 }
 
-const Childrens = () => {
-  const data = useGlobalDataContext()
-  const childrens = navs(data).filter(e => e.childrens)
-  return (
-    <>{childrens.map((n, i) => (
-      <Fragment key={i}>
-        <Section {...n}/>
-      </Fragment>
-    ))}</>
-  )
-}
-
 const Elements = () => (
   <div className={styles['elements']}>
-    <Marketing/>
-    <Isolated/>
-    <Childrens/>
+    <Marketing />
+    <Isolated />
+    <div className={styles['el']}>
+      <div className={styles['links']}>
+        <Link href="/legal/cookies">
+          <a>Políticas de Cookies</a>
+        </Link>
+      </div>
+    </div>
+    <MadeBy />
   </div>
 )
 
 const Footer = () => (
-  <footer className="p py-12 text-x-gray-500 c-lg t-16 lg:pb-12">
+  <footer className="py-12 text-x-gray-500 c-lg lg:pb-12">
     <Elements />
-    <MadeBy />
   </footer>
 )
 

@@ -21,7 +21,7 @@ const Projects = ({
       ...setAnim({ y: '1.5rem', rx: '-16deg' })
     }}>
       <h2 className="mb-24 animate text-3xl sm:text-center sm:text-4xl">
-        Proyecto más reciente
+        Proyecto más emblemático
       </h2>
       <div className="mx-auto mb-24 w-full lg:w-7/10">
         <h3

@@ -54,8 +54,8 @@ const Index = (data: ContactProps) => {
     if (loading) {
       return
     }
-    const valid = fields.forms.filter((f) => f.required).every((f) => !!f.value?.trim())
-    if (!valid) {
+    const isValid = fields.forms.filter((f) => f.required).every((f) => !!f.value?.trim())
+    if (!isValid) {
       alert('Debe llenar todos los campos obligatorios')
       return
     }
@@ -71,19 +71,20 @@ const Index = (data: ContactProps) => {
       body,
     })
       .then(() => {
-        setLoading(false)
         setSended(true)
       })
       .catch((err) => {
-        setLoading(false)
         console.log(err)
         alert('Ha ocurrido un error, intente nuevamente')
+      })
+      .finally(() => {
+        setLoading(false)
       })
   }
   return (
     <Page {...data} title="Formulario de contacto">
       <Viewport
-        className="py-24 pb-48 c-lg lg:pb-24"
+        className="py-24 c-lg"
         once
         style={{
           perspective: 1000,

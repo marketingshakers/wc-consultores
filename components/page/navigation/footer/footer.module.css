@@ -1,7 +1,7 @@
 .madeBy {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: flex-end;
+	justify-content: left;
 	@apply mt-6;
 }
 
@@ -11,6 +11,9 @@
 }
 
 @screen md {
+	.madeBy {
+		justify-content: center;
+	}
 	.madeBy :global(p) {
 		width: auto;
 	}
@@ -25,24 +28,17 @@
 .elements {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	@apply -my-4;
-}
-
-@screen lg {
-	.elements {
-		@apply mx-[-16px];
-		flex-direction: row;
-	}
+	@apply space-y-6;
 }
 
 .el, .el-alt {
 	display: flex;
-	flex-direction: column;
-	@apply my-4;
 }
 
 @screen lg {
+	.elements {
+		align-items: center;
+	}
 	.el, .el-alt {
 		@apply px-[16px];
 	}
@@ -65,13 +61,28 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	@apply mt-2;
+}
+
+@screen lg {
+	.el .links, .el-alt .links {
+		display: flex;
+		flex-direction: row;
+		@apply my-0;
+		@apply space-x-6;
+	}
 }
 
 .el .links :global(a), .el-alt .links :global(a) {
-	@apply my-1;
+	@apply py-2;
 }
 
 .el :global(a):hover, .el-alt :global(a):hover {
 	text-decoration: underline;
+}
+
+@screen lg {
+	.el .links :global(a), .el-alt .links :global(a) {
+		@apply px-1;
+		@apply py-0;
+	}
 }
