@@ -1,11 +1,10 @@
-import Document, { Html, Main, NextScript } from 'next/document'
-import { CriticalStyleHead } from '@/components/criticalStyleHead'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang='en'>
-        <CriticalStyleHead />
+      <Html lang='es'>
+        <Head />
         <body>
           <Main />
           <NextScript />
