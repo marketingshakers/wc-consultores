@@ -16,7 +16,7 @@ query HomeQuery {
     welcomeImage {
       ${responsiveImageHelper({ w: 480, h: 600, q: 60, fit: 'crop' })}
     }
-    
+
     services {
       image {
         ${responsiveImageHelper({ w: 800, q: 60 })}
@@ -66,6 +66,6 @@ export const getStaticProps: GetStaticProps<IndexProps> = async () => {
       directors,
       globalData
     },
-    revalidate: 60
+    revalidate: 1
   }
 }

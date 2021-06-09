@@ -25,6 +25,6 @@ export const getStaticProps: GetStaticProps<CookiesProps> = async () => {
       ...cookiesPolicy,
       globalData
     },
-    revalidate: 60
+    revalidate: 1
   }
 }
