@@ -15,7 +15,7 @@ const DirectorsContainer = ({ directors }: DirectorsContainerProps) => (
       ...setAnim({ y: '1.5rem', rx: '-16deg' })
     }}>
       <h2 className="mb-24 animate text-3xl sm:text-center sm:text-4xl">
-        Nuestros directores
+        ¡Apóyate en WC Consultores!
       </h2>
     </Viewport>
     <div

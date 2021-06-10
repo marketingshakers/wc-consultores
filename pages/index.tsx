@@ -49,8 +49,9 @@ query HomeQuery {
 
   contact {
     instagram
+    twitter
     email
-    location
+    location(markdown: true)
   }
 }
 `
